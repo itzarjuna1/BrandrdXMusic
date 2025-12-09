@@ -13,7 +13,7 @@ def private_panel(_):
         [InlineKeyboardButton(text="❓ Help", callback_data="help")],
         [InlineKeyboardButton(text="💬 Support", url="https://t.me/dark_musicsupport")],
         [InlineKeyboardButton(text="📢 Channel", url="https://t.me/dark_musictm")],
-        [InlineKeyboardButton(text="👤 Owner", user_id="7852340648")],  # replace with your ID
+        [InlineKeyboardButton(text="👤 Owner", url="https://t.me/onigirisannn")],  # replace with your ID
     ]
 
 @app.on_message(filters.command(["start"]) & filters.private & ~config.BANNED_USERS)
