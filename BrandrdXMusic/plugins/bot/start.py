@@ -24,10 +24,9 @@ async def start_pm(client, message: Message, _):
         # ...
         return  # Exit after handling these cases
 
-    # If normal start
+    # Normal start
     try:
-        # Get private panel buttons
-        keyboard = private_panel(_)
+        keyboard = private_panel(_)  # may return None
     except Exception:
         keyboard = None
 
@@ -36,7 +35,6 @@ async def start_pm(client, message: Message, _):
         f"𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐁𝐚𝐛𝐲 ꨄ︎ {message.from_user.mention}.. ❣️"
     )
 
-    # Edit animation sequence
     frames = [
         f"𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐁𝐚𝐛𝐲 ꨄ {message.from_user.mention}.. 🥳",
         f"𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐁𝐚𝐛𝐲 ꨄ {message.from_user.mention}.. 💥",
@@ -49,7 +47,7 @@ async def start_pm(client, message: Message, _):
         await asyncio.sleep(0.3)
         await lol.edit_text(frame)
 
-    # Delete previous message before sending panel
+    # Delete welcome message before sending panel
     await lol.delete()
 
     # Animated "**⚡ѕтαятιиg**" message
@@ -65,25 +63,26 @@ async def start_pm(client, message: Message, _):
         "**⚡ѕтαятιиg.**",
         "**⚡ѕтαятιиg....**",
     ]
+
     for frame in animation_frames:
         await asyncio.sleep(0.1)
         await lols.edit_text(frame)
 
-    # Delete animation message after done
+    # Delete animation message
     await lols.delete()
 
-    # Send private panel with buttons
+    # Send private panel with buttons safely
     await message.reply_photo(
         photo=config.START_IMG_URL,
         caption=_["start_2"].format(message.from_user.mention, app.mention),
-        reply_markup=InlineKeyboardMarkup(keyboard),
+        reply_markup=InlineKeyboardMarkup(keyboard) if keyboard else None,
     )
 
-    # Optional: send log message
+    # Optional logging
     if await is_on_off(config.LOG):
         await app.send_message(
             config.LOG_GROUP_ID,
             f"{message.from_user.mention} ʜᴀs sᴛᴀʀᴛᴇᴅ ʙᴏᴛ."
             f"\n\n**ᴜsᴇʀ ɪᴅ : {message.from_user.id}\n**ᴜsᴇʀ ɴᴀᴍᴇ: {message.from_user.first_name}",
-        )
+    )
         
