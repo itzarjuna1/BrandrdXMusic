@@ -39,10 +39,19 @@ def help_pannel(_, START: Union[bool, int] = None):
         ]
     )
 
+def help_back_markup(_):
+    upl = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    text=_["BACK_BUTTON"],
+                    callback_data=f"settings_back_helper",
+                ),
+            ]
+        ]
+    )
+    return upl
 
-# =========================
-# PRIVATE HELP PANEL
-# =========================
 
 def private_help_panel(_):
     buttons = [
@@ -54,3 +63,7 @@ def private_help_panel(_):
         ],
     ]
     return buttons
+# =========================
+# PRIVATE HELP PANEL
+# =========================
+
