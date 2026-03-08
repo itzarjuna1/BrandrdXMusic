@@ -45,7 +45,7 @@ HEROKU_API_KEY = os.getenv("HEROKU_API_KEY")
 
 UPSTREAM_REPO = os.getenv(
     "UPSTREAM_REPO",
-    "https://github.com/txkuze/infinityrepo",
+    "https://github.com/itzarjuna1/BrandrdXMusic",
 )
 UPSTREAM_BRANCH = os.getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = os.getenv(
