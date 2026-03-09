@@ -5,7 +5,7 @@
 </h2>
 
 <p align="center">
-  <img src="https://files.catbox.moe/qdm48e.gif">
+  <img src="[https://files.catbox.moe/qdm48e.gif](https://files.catbox.moe/qdm48e.gif)">
 </p>
 
 <p align="center">
