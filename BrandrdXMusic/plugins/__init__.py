@@ -1,4 +1,5 @@
 import glob
+import importlib
 from os.path import dirname, isfile
 
 
@@ -12,8 +13,19 @@ def __list_all_modules():
         if isfile(f) and f.endswith(".py") and not f.endswith("__init__.py")
     ]
 
-    return all_modules
+    return sorted(all_modules)
 
 
-ALL_MODULES = sorted(__list_all_modules())
-__all__ = ALL_MODULES + ["ALL_MODULES"]
+ALL_MODULES = __list_all_modules()
+
+
+def load_plugins():
+    for module in ALL_MODULES:
+        try:
+            importlib.import_module("BrandrdXMusic.plugins" + module)
+            print(f"[PLUGIN LOADED] {module}")
+        except Exception as e:
+            print(f"[PLUGIN FAILED] {module} -> {e}")
+
+
+__all__ = ALL_MODULES + ["ALL_MODULES", "load_plugins"]
