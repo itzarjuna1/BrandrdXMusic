@@ -2,6 +2,11 @@ import os
 
 from ..logging import LOGGER
 
+BASE_DIR = os.getcwd()
+BACKUP_DIR = os.path.join(BASE_DIR, "ASTRALBACKUP")
+
+os.makedirs(BACKUP_DIR, exist_ok=True)
+
 
 def dirr():
     for file in os.listdir():
@@ -14,6 +19,7 @@ def dirr():
 
     if "downloads" not in os.listdir():
         os.mkdir("downloads")
+
     if "cache" not in os.listdir():
         os.mkdir("cache")
 
