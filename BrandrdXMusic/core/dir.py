@@ -7,7 +7,7 @@ COUPLE_DIR = os.path.join(BASE_DIR, "couples")
 CACHE_DIR = os.path.join(BASE_DIR, "cache")
 BACKUP_DIR = os.path.join(BASE_DIR, "ASTRALBACKUPS")
 
-def StorageManager():
+def dirr():
 
     os.makedirs(DOWNLOAD_DIR, exist_ok=True)
     os.makedirs(CACHE_DIR, exist_ok=True)
