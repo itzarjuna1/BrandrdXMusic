@@ -7,7 +7,7 @@ from BrandrdXMusic.misc import dbb, heroku
 from SafoneAPI import SafoneAPI
 from .logging import LOGGER
 
-dir()
+dirr()
 git()
 dbb()
 heroku()
