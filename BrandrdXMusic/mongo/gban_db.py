@@ -1,7 +1,7 @@
-from BrandrdXMusic import mongodb
+from BrandrdXMusic.utils.mongo import db 
 import time
 
-gbans = mongodb["global_bans"]
+gbans = db.global_bans
 
 async def add_gban(user_id: int, banned_by: int):
 
