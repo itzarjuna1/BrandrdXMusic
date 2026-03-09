@@ -1,6 +1,6 @@
-from BrandrdXMusic import mongodb
+from BrandrdXMusic.utils.mongo import db 
 
-chatsdb = mongodb["network_chats"]
+chatsdb = db.network_chats
 
 async def add_chat(chat_id: int):
     chat = await chatsdb.find_one({"chat_id": chat_id})
